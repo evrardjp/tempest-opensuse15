@@ -1,9 +1,7 @@
 ARG FROM=opensuse/leap:15
 FROM ${FROM} as base
 
-ARG REPOFILE=https://download.opensuse.org/repositories/Cloud:/OpenStack:/Rocky/openSUSE_Leap_15.0/Cloud:OpenStack:Rocky.repo
-
-RUN zypper ar ${REPOFILE} && zypper --gpg-auto-import-keys refresh && \
+RUN zypper ar https://download.opensuse.org/repositories/Cloud:/OpenStack:/Rocky/openSUSE_Leap_15.0/Cloud:OpenStack:Rocky.repo && zypper --gpg-auto-import-keys refresh && \
     zypper install --no-confirm \
                    --auto-agree-with-licenses \
                    --force-resolution \
