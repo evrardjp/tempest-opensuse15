@@ -1,5 +1,4 @@
-ARG FROM=opensuse/leap:15
-FROM ${FROM} as base
+FROM opensuse/leap:15
 
 RUN zypper ar https://download.opensuse.org/repositories/Cloud:/OpenStack:/Rocky/openSUSE_Leap_15.0/Cloud:OpenStack:Rocky.repo && zypper --gpg-auto-import-keys refresh && \
     zypper install --no-confirm \
@@ -19,4 +18,5 @@ RUN zypper ar https://download.opensuse.org/repositories/Cloud:/OpenStack:/Rocky
                    python-monasca-tempest-plugin \
                    python-neutron-tempest-plugin \
                    python-octavia-tempest-plugin \
-                   python-telemetry-tempest-plugin
+                   python-telemetry-tempest-plugin && \
+    zypper clean -a
